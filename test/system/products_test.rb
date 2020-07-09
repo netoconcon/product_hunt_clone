@@ -5,13 +5,13 @@ class ProductsTest < ApplicationSystemTestCase
     visit '/' # só funciona se a página retornar 200
     assert_selector 'h1', text: "Awesome Products" # verifica o elemento h1 com o text
     assert_selector ".card-product", count: Product.count
-    save_and_open_screenshot
+    # save_and_open_screenshot
   end
 
   test "lets a signed in user create a new product" do
     login_as users(:george)
     visit "/products/new"
-    # save_and_open_screenshot
+    save_and_open_screenshot
 
     fill_in "product_name", with: "Le Wagon"
     fill_in "product_tagline", with: "Change your life: Learn to code"
